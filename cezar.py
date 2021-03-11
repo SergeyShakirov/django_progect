@@ -1,5 +1,5 @@
 n = list(input())
-shift = int(input())
+shift = 1
 ru_low = [1072, 1103]
 ru_up = [1040, 1071]
 en_up = [65, 90]
@@ -16,8 +16,8 @@ for i in n:
     language = 'en'
     up, low = en_up, en_low
     break
-m = n
 while shift != 0:
+  m = n[:]
   shift = int(input())
   for i in range(len(m)):
     if m[i].isalpha() and m[i].islower():
@@ -37,4 +37,3 @@ while shift != 0:
           else:
             m[i] = chr(up[0] - 1 + (abs(shift) - (up[1] - ord(m[i]))))
   print(''.join(m))
-  m = n
