@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>Moves</title>
+
+<h1>Films by {{ director }}</h1>
+
+<ul>
+{% for movie in moves %}
+  <li>{{ movie.year }} - {{ movie.title }}</li>
+{% endfor %}
+</ul>
