@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render
 from .models import Cities
 from .forms import City_form
+from django.views.generic import DeleteView, DetailView
 
 
 def top(request):
@@ -26,6 +27,7 @@ def top(request):
             continue
         city_info = {
             'city': city.name,
+            'city_id': city.city_id,
             'temp': res['main']['temp'],
             'icon': res['weather'][0]['icon'],
         }
@@ -42,6 +44,13 @@ def index(request):
     return render(request, 'WeatherNow/index.html', context)
 
 
+class NewDetailView(DetailView):
+    model = Cities
+    template_name = 'WeatherNow/detail.html'
+    context_object_name = 'info'
+    pk_url_kwarg = 'name'
+
+
 def detail(request, city_name):
     data = top(request)
 
@@ -51,3 +60,9 @@ def detail(request, city_name):
         'city_name': city_name,
     }
     return render(request, 'WeatherNow/detail.html', context)
+
+
+class OnDelete(DeleteView):
+    model = Cities
+    success_url = 'WeatherNow/index.html'
+    template_name = 'WeatherNow/city_delete.html'

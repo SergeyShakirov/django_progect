@@ -29,39 +29,12 @@
     {% endfor %}
     <!--<a class="btn btn-outline-primary" href="#">Войти</a>-->
 </div>
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-5 offset-1">
-            <h1>Погода в вашем городе</h1>
-            <form action="" method="post">
-                {% csrf_token %}
-                <label for="city">Город</label>
-                {{ form.name }}
-                <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-danger">
-            </form>
-        </div>
-
-        <div class="col-5 offset-1">
-            <h1>Информация</h1>
-            {% for info in all_info %}
-            <div class="justify-content-center alert alert-info">
-                <div class="row">
-                    <div class="col-9">
-                        <b>Город:</b> {{ info.city }}<br>
-                        <b>Температура:</b> {{ info.temp }}<sup>o</sup>
-                    </div>
-                    <div class="col-2 offset-1">
-                        <a class="my-0 p-4 mr-md-auto text-dark" href="{% url 'WeatherNow:on_delete' info.city %}">X</a>
-                        <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+<div class="features">
+    <h1>Удалить город</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="mt-2 btn btn-danger">
+    </form>
 </div>
-
-
 </body>
 </html>
