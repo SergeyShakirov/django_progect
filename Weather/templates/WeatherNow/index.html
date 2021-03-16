@@ -22,7 +22,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <!--<a class="p-2 text-dark" href="#"></a>-->
 
-        <a class="my-0 p-4 mr-md-auto text-dark" href="{% url 'WeatherNow:detail' info.city %}">{{ info.city }}</a>
+        <a class="my-0 p-4 mr-md-auto text-dark" href="{% url 'WeatherNow:detail' info.id %}">{{ info.city }}</a>
 
         <!--<a class="p-2 text-dark" href="#">О нас</a>-->
     </nav>
@@ -52,7 +52,7 @@
                         <b>Температура:</b> {{ info.temp }}<sup>o</sup>
                     </div>
                     <div class="col-2 offset-1">
-                        <a class="my-0 p-4 mr-md-auto text-dark" href="{% url 'WeatherNow:on_delete' info.city %}">X</a>
+                        <a class="my-0 p-4 mr-md-auto text-dark" href="{% url 'WeatherNow:on_delete' info.id %}">X</a>
                         <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды" class="img-thumbnail">
                     </div>
                 </div>

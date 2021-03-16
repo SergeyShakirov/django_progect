@@ -9,4 +9,4 @@ class Cities(models.Model):
         return self.name
 
     def get_absolut_url(self):
-        return f'/{self.id}'
+        return f'/{self.city_id}'
