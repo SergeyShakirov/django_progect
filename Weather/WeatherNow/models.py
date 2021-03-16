@@ -7,6 +7,3 @@ class Cities(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_absolut_url(self):
-        return f'/{self.city_id}'
