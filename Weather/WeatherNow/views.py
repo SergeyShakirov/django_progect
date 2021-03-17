@@ -30,7 +30,7 @@ def top(request):
         if res['cod'] != 200:
             continue
         city_info = {
-            'city': res['name'],
+            'name': res['name'],
             'city_id': city.city_id,
             'id': city.id,
             'temp': int(res['main']['temp']),
